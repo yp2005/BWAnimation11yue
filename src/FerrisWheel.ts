@@ -40,6 +40,7 @@ class FerrisWheel {
             {url: "res/atlas/FerrisWheel.atlas", type: Laya.Loader.ATLAS},
             {url: "res/atlas/FerrisWheel/card-pic.atlas", type: Laya.Loader.ATLAS},
             {url: "res/atlas/FerrisWheel/card.atlas", type: Laya.Loader.ATLAS},
+            {url: "res/atlas/FerrisWheel/question-pic.atlas", type: Laya.Loader.ATLAS},
             {url: "FerrisWheel/bg.png", type: Laya.Loader.IMAGE},
             {url: "template/Text/TextBox.png", type: Laya.Loader.IMAGE},
             {url: "template/ButtonTab/btn_LargeTabButton_Middle.png", type: Laya.Loader.IMAGE}

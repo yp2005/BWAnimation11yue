@@ -1,0 +1,4 @@
+<res>
+   <item name="template/Text/TextBox.png" type="Image" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+   <item name="template/ButtonTab/btn_LargeTabButton_Middle.png" type="Button" compress="0" pack="2" quality="80" props="" picType="0" scale="0"/>
+</res>

@@ -3,7 +3,7 @@ import Stage = Laya.Stage;
 import WebGL   = Laya.WebGL;
 import Sprite = Laya.Sprite;
 class FerrisWheel {
-    public static ferrisWheelMain: FerrisWheelMain; // 摩天轮主界面
+    public static ferrisWheelMain: FerrisWheelMain; // 主界面
     public static gameConfig: any; // 游戏配置
     
     constructor(config: any)
@@ -12,6 +12,7 @@ class FerrisWheel {
         if(!config) {
             config = {
                 gameModel: false, // 是否游戏模式，游戏模式不显示配置按钮
+                questionType: "text", // 问题类型 text 文字，picture 图片
                 questionFontSize: 30, // 问题字体大小
                 questions: [{
                     question: "Sky is beautiful，\nit's color is ____.",

@@ -38,8 +38,8 @@ else if (gameName == "hotairballoon") {
     var config = {
         gameModel: false,
         optionType: "word",
-        options: ["bag", "car", "cat", "rain"],
-        // options: ["bag", "car", "cat", "rain", "farmer", "market", "snake", "taking", "today"], // 选项
+        // options: ["bag", "car", "cat", "rain"],
+        options: ["bag", "car", "cat", "rain", "farmer", "market", "snake", "taking", "today"],
         // options: ["bag.png", "car.png", "cat.png"], // 选项
         bg: "bg.png"
     };

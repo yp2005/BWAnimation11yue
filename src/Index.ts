@@ -39,8 +39,8 @@ if(gameName == "ferrisWheel") {
     let config: any = {
         gameModel: false, // 是否游戏模式，游戏模式不显示配置按钮
         optionType: "word", // 选项类型 word 单词，picture 图片
-        options: ["bag", "car", "cat", "rain"],
-        // options: ["bag", "car", "cat", "rain", "farmer", "market", "snake", "taking", "today"], // 选项
+        // options: ["bag", "car", "cat", "rain"],
+        options: ["bag", "car", "cat", "rain", "farmer", "market", "snake", "taking", "today"], // 选项
         // options: ["bag.png", "car.png", "cat.png"], // 选项
         bg: "bg.png"
     };

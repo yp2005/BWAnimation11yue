@@ -43,18 +43,15 @@ var HotAirBalloonMain = /** @class */ (function (_super) {
     };
     //初始化
     HotAirBalloonMain.prototype.init = function () {
-        var ranArr1 = this.getRandomArr(5);
-        var ranArr2 = this.getRandomArr(5);
         this.bg.skin = "HotAirBalloon/" + HotAirBalloon.gameConfig.bg;
-        var xRanArr = this.getRandomArr(10);
-        var yRanArr = this.getRandomArr(5);
         // 用来计算随机偏移量
         var perx = this.maxX / 20;
         var pery = this.maxX / 10;
         var posRan = this.getRandomArr(10);
+        var numRan = this.getRandomArr(9);
         for (var i = 0; i < HotAirBalloon.gameConfig.options.length; i++) {
             var aa = HotAirBalloon.gameConfig.options[i];
-            var item = new Balloon(HotAirBalloon.gameConfig.optionType, HotAirBalloon.gameConfig.options[i]);
+            var item = new Balloon(HotAirBalloon.gameConfig.optionType, HotAirBalloon.gameConfig.options[i], numRan[i % 9]);
             // let x = Math.random()*this.maxX;
             // let y = Math.random()*this.maxY;
             // 位置分为两排，12345，678910

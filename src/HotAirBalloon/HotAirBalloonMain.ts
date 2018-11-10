@@ -38,20 +38,17 @@ class HotAirBalloonMain extends ui.HotAirBalloonUI {
 
     //初始化
     public init(){
-        let ranArr1 = this.getRandomArr(5);
-        let ranArr2 = this.getRandomArr(5);
         this.bg.skin = "HotAirBalloon/"+HotAirBalloon.gameConfig.bg;
-        let xRanArr = this.getRandomArr(10);
-        let yRanArr = this.getRandomArr(5);
 
         // 用来计算随机偏移量
         let perx = this.maxX/20;
         let pery = this.maxX/10;
         let posRan = this.getRandomArr(10);
+        let numRan = this.getRandomArr(9);
 
         for(let i = 0;i<HotAirBalloon.gameConfig.options.length;i++){
             let aa = HotAirBalloon.gameConfig.options[i];
-            let item = new Balloon(HotAirBalloon.gameConfig.optionType,HotAirBalloon.gameConfig.options[i]);
+            let item = new Balloon(HotAirBalloon.gameConfig.optionType,HotAirBalloon.gameConfig.options[i],numRan[i%9]);
             // let x = Math.random()*this.maxX;
             // let y = Math.random()*this.maxY;
             // 位置分为两排，12345，678910

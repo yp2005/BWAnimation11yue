@@ -14,8 +14,8 @@ var HABConfigView = /** @class */ (function () {
         this.closeBtn = configBox.getChildByName("closeBtn");
         this.wordLabel = configBox.getChildByName("wordlabel");
         this.picLabel = configBox.getChildByName("piclabel");
-        this.wordRemark = configBox.getChildByName("wordermark");
-        this.picRemark = configBox.getChildByName("picermark");
+        this.wordRemark = configBox.getChildByName("wordremark");
+        this.picRemark = configBox.getChildByName("picremark");
         // 添加事件监听
         this.wordRadio.on(Laya.Event.CLICK, this, this.switchWord);
         this.wordRadioImg.on(Laya.Event.CLICK, this, this.switchWord);

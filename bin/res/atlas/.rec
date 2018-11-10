@@ -1,5 +1,7 @@
 D .
+R CFB145A9 .DS_Store
 D common
+R 6D88006A .DS_Store
 P 5A05FAAE configBG.png
 P BC4E3960 img_radio_checked.png
 P 838697A5 img_radio_notCheck.png
@@ -7,13 +9,15 @@ P 6E734B3F replay-abled.png
 P 804EDB4F replay-disabled.png
 P 6F2E1E3C setting.png
 D FerrisWheel
+R 8DC21487 .DS_Store
 R E6DEA407 bg.png
 P DC5F774A pole.png
-R 8CFD68FF README.txt
+R 504601F5 README.txt
 P BFC9CFBD 牌子.png
 P F66BEBE7 箭头-1.png
 P 3BC47D94 箭头-2.png
 D HotAirBalloon
+R 6D88006A .DS_Store
 P 0CA7F776 1.png
 P 0CA7F776 2.png
 P 0CA7F776 3.png
@@ -29,7 +33,9 @@ P 6E734B3F Replay-2.png
 P 988EC60B sound-disabled.png
 P 6BC2599F sound.png
 D template
+R D6AFB7DA .gitignore
 D FerrisWheel/card
+R 6D88006A .DS_Store
 P DCE0C408 1.png
 P 94DE982B 10.png
 P D4ED6D74 2.png

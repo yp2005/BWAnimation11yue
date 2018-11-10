@@ -29,8 +29,8 @@ class HABConfigView {
         this.closeBtn = configBox.getChildByName("closeBtn") as Laya.Text;
         this.wordLabel = configBox.getChildByName("wordlabel") as Laya.Label;
         this.picLabel = configBox.getChildByName("piclabel") as Laya.Label;
-        this.wordRemark = configBox.getChildByName("wordermark") as Laya.Text;
-        this.picRemark = configBox.getChildByName("picermark") as Laya.Text;
+        this.wordRemark = configBox.getChildByName("wordremark") as Laya.Text;
+        this.picRemark = configBox.getChildByName("picremark") as Laya.Text;
         // 添加事件监听
 
         this.wordRadio.on(Laya.Event.CLICK, this, this.switchWord);

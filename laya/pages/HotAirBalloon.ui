@@ -173,9 +173,9 @@
                 {
                     "x":30,
                     "type":"Text",
-                    "props":{"y":143,"x":634,"text":"示例：\bblue,green,red,yellow","name":"wordermark","fontSize":17,"font":"FF","color":"#666666"},
+                    "props":{"y":143,"x":634,"text":"示例：blue,green,red,yellow","name":"wordremark","fontSize":17,"font":"FF","color":"#666666"},
                     "nodeParent":26,
-                    "label":"Text(wordermark)",
+                    "label":"Text(wordremark)",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -303,7 +303,7 @@
                 {
                     "x":30,
                     "type":"Text",
-                    "props":{"y":143,"x":634,"text":"示例：\bapple.png,plane.png","name":"picremark","fontSize":17,"font":"FF","color":"#666666"},
+                    "props":{"y":143,"x":634,"text":"示例：bag.png,car.png,cat.png","name":"picremark","fontSize":17,"font":"FF","color":"#666666"},
                     "nodeParent":26,
                     "label":"Text(picremark)",
                     "isDirectory":false,

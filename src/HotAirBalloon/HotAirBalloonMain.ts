@@ -71,16 +71,6 @@ class HotAirBalloonMain extends ui.HotAirBalloonUI {
         this.replayAble.visible = false;
     }
 
-    public getRandomPos(num:number){
-        let perx = this.maxX/5;
-        let posRan = this.getRandomArr(10);
-        if(num>5){
-            // 分两排
-        }else{
-            // 一排
-        }
-    }
-
     public playSound(){
         let wordindex = this.soundArr[this.soundContext] - 1;
         this.wordContext = HotAirBalloon.gameConfig.options[wordindex];

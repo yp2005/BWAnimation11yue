@@ -71,16 +71,6 @@ var HotAirBalloonMain = /** @class */ (function (_super) {
         this.soundContext = 0;
         this.replayAble.visible = false;
     };
-    HotAirBalloonMain.prototype.getRandomPos = function (num) {
-        var perx = this.maxX / 5;
-        var posRan = this.getRandomArr(10);
-        if (num > 5) {
-            // 分两排
-        }
-        else {
-            // 一排
-        }
-    };
     HotAirBalloonMain.prototype.playSound = function () {
         var wordindex = this.soundArr[this.soundContext] - 1;
         this.wordContext = HotAirBalloon.gameConfig.options[wordindex];

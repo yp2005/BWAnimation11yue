@@ -38,9 +38,9 @@ else if (gameName == "hotairballoon") {
     var config = {
         gameModel: false,
         optionType: "word",
-        // options: ["blue", "orange", "green", "yellow"],
-        options: ["blue", "orange", "green", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow"],
-        // options: ["boring.png", "careful.png", "easy.png", "slow.png"], // 选项
+        options: ["bag", "car", "cat", "rain"],
+        // options: ["bag", "car", "cat", "rain", "farmer", "market", "snake", "taking", "today"], // 选项
+        // options: ["bag.png", "car.png", "cat.png"], // 选项
         bg: "bg.png"
     };
     new HotAirBalloon(config);

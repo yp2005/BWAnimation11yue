@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":77,
+    "selecteID":2,
     "props":{"width":1024,"sceneColor":"#ffffff","height":768},
     "nodeParent":-1,
     "label":"View",
@@ -24,7 +24,8 @@
             "compId":2,
             "child":[
                 ],
-            "$LOCKED":true
+            "$LOCKED":true,
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -40,7 +41,7 @@
             "child":[
                 ],
             "$LOCKED":true,
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,

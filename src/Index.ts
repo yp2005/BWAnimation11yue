@@ -1,7 +1,7 @@
 // 程序入口，本工程仅用于切换各个动画进行测试
 
 // 游戏名称，修改这个变量值来切换不同游戏，ferrisWheel：摩天轮
-let gameName = "ferrisWheel"; 
+let gameName = "hotairballoon"; 
 
 if(gameName == "ferrisWheel") {
     // 摩天轮
@@ -34,4 +34,15 @@ if(gameName == "ferrisWheel") {
         // options: ["boring.png", "careful.png", "easy.png", "slow.png"] // 选项
     };
     new FerrisWheel(config);
+}else if(gameName == "hotairballoon") {
+    // 热气球
+    let config: any = {
+        gameModel: false, // 是否游戏模式，游戏模式不显示配置按钮
+        optionType: "word", // 选项类型 word 单词，picture 图片
+        // options: ["blue", "orange", "green", "yellow"],
+        options: ["blue", "orange", "green", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow", "yellow"], // 选项
+        // options: ["boring.png", "careful.png", "easy.png", "slow.png"], // 选项
+        bg: "bg.png"
+    };
+    new HotAirBalloon(config);
 }

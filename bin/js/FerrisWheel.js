@@ -8,6 +8,7 @@ var FerrisWheel = /** @class */ (function () {
         if (!config) {
             config = {
                 gameModel: false,
+                questionType: "text",
                 questionFontSize: 30,
                 questions: [{
                         question: "Sky is beautiful，\nit's color is ____.",

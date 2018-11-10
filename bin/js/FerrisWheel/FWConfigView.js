@@ -51,51 +51,76 @@ var FWConfigView = /** @class */ (function () {
     FWConfigView.prototype.switchWord = function (e) {
         e.stopPropagation();
         if (this.optionType == "picture") {
-            this.questionType = "word";
+            this.optionType = "word";
             this.wordRadioImg.skin = "common/img_radio_checked.png";
             this.picRadioImg1.skin = "common/img_radio_notCheck.png";
         }
     };
     // 选项类型选择图片
     FWConfigView.prototype.switchPic1 = function (e) {
-        if (this.questionType == "picture") {
-            this.questionType = "word";
+        if (this.optionType == "word") {
+            this.optionType = "picture";
             this.wordRadioImg.skin = "common/img_radio_notCheck.png";
             this.picRadioImg1.skin = "common/img_radio_checked.png";
         }
     };
     // 初始化
     FWConfigView.prototype.init = function () {
-        // this.layout = HitBalloon.gameConfig.layout;
-        // if(this.layout == 2) {      
-        //     this.twoLineRadioImg.skin = "common/img_radio_checked.png";
-        //     this.threeLineRadioImg.skin = "common/img_radio_notCheck.png";
-        // }
-        // else if(this.layout == 3) {
-        //     this.threeLineRadioImg.skin = "common/img_radio_checked.png";
-        //     this.twoLineRadioImg.skin = "common/img_radio_notCheck.png";
-        // }
-        // this.backgroundImg.text = HitBalloon.gameConfig.backgroundImg;
-        // let text = "";
-        // for(let word of HitBalloon.gameConfig.words) {
-        //     if(text == "") {
-        //         text = word.word + ":";
-        //     }
-        //     else {
-        //         text += ";" + word.word + ":";
-        //     }
-        //     let pictures = "";
-        //     for(let picture of word.pictures) {
-        //         if(pictures == "") {
-        //             pictures = picture;
-        //         }
-        //         else {
-        //             pictures += "," + picture;
-        //         }
-        //     }
-        //     text += pictures;
-        // }
-        // this.textInput.text = text;
+        this.questionType = FerrisWheel.gameConfig.questionType;
+        if (this.questionType == "text") {
+            this.textRadioImg.skin = "common/img_radio_checked.png";
+            this.picRadioImg.skin = "common/img_radio_notCheck.png";
+        }
+        else {
+            this.picRadioImg.skin = "common/img_radio_checked.png";
+            this.textRadioImg.skin = "common/img_radio_notCheck.png";
+        }
+        this.optionType = FerrisWheel.gameConfig.optionType;
+        if (this.optionType == "word") {
+            this.wordRadioImg.skin = "common/img_radio_checked.png";
+            this.picRadioImg1.skin = "common/img_radio_notCheck.png";
+        }
+        else {
+            this.picRadioImg1.skin = "common/img_radio_checked.png";
+            this.wordRadioImg.skin = "common/img_radio_notCheck.png";
+        }
+        this.questionFontSize.text = FerrisWheel.gameConfig.questionFontSize;
+        // 初始化问题内容
+        var questionText = "";
+        for (var _i = 0, _a = FerrisWheel.gameConfig.questions; _i < _a.length; _i++) {
+            var question = _a[_i];
+            var qt = question.question.replace(/\n/g, "<br>");
+            if (questionText == "") {
+                questionText = qt + "==";
+            }
+            else {
+                questionText += "@@" + qt + "==";
+            }
+            var answers = "";
+            for (var _b = 0, _c = question.answer; _b < _c.length; _b++) {
+                var a = _c[_b];
+                if (answers == "") {
+                    answers = a;
+                }
+                else {
+                    answers += "," + a;
+                }
+            }
+            questionText += answers;
+        }
+        this.questions.text = questionText;
+        // 初始化选项内容
+        var optionText = "";
+        for (var _d = 0, _e = FerrisWheel.gameConfig.options; _d < _e.length; _d++) {
+            var option = _e[_d];
+            if (optionText == "") {
+                optionText = option;
+            }
+            else {
+                optionText += "," + option;
+            }
+        }
+        this.options.text = optionText;
     };
     // 显示配置
     FWConfigView.prototype.show = function () {
@@ -110,51 +135,49 @@ var FWConfigView = /** @class */ (function () {
     };
     // 提交配置
     FWConfigView.prototype.submit = function () {
-        // if(!this.backgroundImg.text) {
-        //     HitBalloon.hitBalloonMain.showTip("请输入背景图！");
-        //     return;
-        // }
-        // let texts = this.textInput.text.split(";");
-        // if(this.layout == 2 && (texts.length < 1 || texts.length > 6)) {
-        //     HitBalloon.hitBalloonMain.showTip("单词个数在1-6之间！");
-        //     return;
-        // }
-        // else if(this.layout == 3 && (texts.length < 1 || texts.length > 8)) {
-        //     HitBalloon.hitBalloonMain.showTip("单词个数在1-8之间！");
-        //     return;
-        // }
-        // let words = [];
-        // let picNum = 0;
-        // for(let text of texts) {
-        //     let textSp = text.split(":");
-        //     if(textSp.length != 2 || textSp[0] == "" || textSp[1] == "") {
-        //          HitBalloon.hitBalloonMain.showTip("配置格式错误，请参考示例！");
-        //         return;
-        //     }
-        //     let pictures = textSp[1].split(",");
-        //     words.push({
-        //         word: textSp[0],
-        //         pictures: pictures
-        //     });
-        //     picNum += pictures.length;
-        // }
-        // if(this.layout == 2 && (picNum < 1 || picNum > 6)) {
-        //     HitBalloon.hitBalloonMain.showTip("图片个数在1-6之间！");
-        //     return;
-        // }
-        // else if(this.layout == 3 && (picNum < 1 || picNum > 10)) {
-        //     HitBalloon.hitBalloonMain.showTip("图片个数在1-10之间！");
-        //     return;
-        // }
-        // HitBalloon.gameConfig = {
-        //     gameModel: false,
-        //     backgroundImg: this.backgroundImg.text,
-        //     layout: this.layout,
-        //     words: words
-        // };
-        // HitBalloon.hitBalloonMain.showTip("提交成功！");
-        // HitBalloon.hitBalloonMain.bg.skin = "HitBalloon/" + this.backgroundImg.text;
-        // this.hide();
+        if (!this.questionFontSize.text) {
+            FerrisWheel.ferrisWheelMain.showTip("请输入问题字号！");
+            return;
+        }
+        if (!this.questions.text) {
+            FerrisWheel.ferrisWheelMain.showTip("请输入问题！");
+            return;
+        }
+        if (!this.options.text) {
+            FerrisWheel.ferrisWheelMain.showTip("请输入选项！");
+            return;
+        }
+        var options = this.options.text.split(",");
+        if (options.length < 4 || options.length > 10) {
+            FerrisWheel.ferrisWheelMain.showTip("选项数量在4-10之间！");
+            return;
+        }
+        var questionTexts = this.questions.text.split("@@");
+        var questions = [];
+        for (var _i = 0, questionTexts_1 = questionTexts; _i < questionTexts_1.length; _i++) {
+            var questionText = questionTexts_1[_i];
+            var questionTextSp = questionText.split("==");
+            if (questionTextSp.length != 2 || questionTextSp[0] == "" || questionTextSp[1] == "") {
+                FerrisWheel.ferrisWheelMain.showTip("问题配置格式错误，请参考示例！");
+                return;
+            }
+            var answers = questionTextSp[1].split(",");
+            questions.push({
+                question: questionTextSp[0].replace(/<br>/g, "\n"),
+                answer: answers
+            });
+        }
+        FerrisWheel.gameConfig = {
+            gameModel: false,
+            questionType: this.questionType,
+            questionFontSize: parseInt(this.questionFontSize.text),
+            questions: questions,
+            optionType: this.optionType,
+            options: options
+        };
+        FerrisWheel.ferrisWheelMain.showTip("提交成功！");
+        this.hide();
+        FerrisWheel.ferrisWheelMain.restart();
     };
     return FWConfigView;
 }());

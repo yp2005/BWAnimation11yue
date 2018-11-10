@@ -31,6 +31,7 @@ var Card = /** @class */ (function (_super) {
         _this.on(Laya.Event.CLICK, _this, _this.ontouch);
         return _this;
     }
+    // 点击选项卡
     Card.prototype.ontouch = function () {
         if (FerrisWheel.ferrisWheelMain.turnPause) {
             return;

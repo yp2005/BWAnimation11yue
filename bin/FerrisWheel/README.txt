@@ -1,0 +1,2 @@
+选项图片请放入card-pic目录
+问题图片请放入question-pic目录

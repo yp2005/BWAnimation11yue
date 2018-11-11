@@ -43,6 +43,7 @@ var HotAirBalloonMain = /** @class */ (function (_super) {
     };
     //初始化
     HotAirBalloonMain.prototype.init = function () {
+        console.log(HotAirBalloon.gameConfig);
         this.bg.skin = "HotAirBalloon/" + HotAirBalloon.gameConfig.bg;
         // 用来计算随机偏移量
         var perx = this.maxX / 20;
@@ -70,7 +71,13 @@ var HotAirBalloonMain = /** @class */ (function (_super) {
     };
     HotAirBalloonMain.prototype.playSound = function () {
         var wordindex = this.soundArr[this.soundContext] - 1;
-        this.wordContext = HotAirBalloon.gameConfig.options[wordindex];
+        var optionContext = HotAirBalloon.gameConfig.options[wordindex];
+        if (HotAirBalloon.gameConfig.optionType === "word") {
+            this.wordContext = optionContext;
+        }
+        else {
+            this.wordContext = optionContext.split('.')[0];
+        }
         console.log(this.wordContext);
         Laya.SoundManager.playSound("res/audio/HotAirBalloon/" + this.wordContext + ".mp3", 1);
         // this.soundContext++;

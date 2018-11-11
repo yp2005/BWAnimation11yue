@@ -11,11 +11,16 @@ class Balloon extends ui.BalloonUI {
             // let ranArr = HotAirBalloon.hotAirBalloonMain.getRandomArr(9);
             this.textBg.skin = "HotAirBalloon/"+num+".png";
             this.text.text = name;
+            this.text.visible = true;
+            this.textBg.visible = true;
+            this.name = name;
         }else{
             this.text.visible = false;
             this.textBg.visible = false;
+            this.pic.visible = true;
+            this.pic.skin = "HotAirBalloon/"+name;
+            this.name = name.split('.')[0];
         }
-        this.name = name;
         
         this.on(Laya.Event.CLICK, this, this.click);
     }

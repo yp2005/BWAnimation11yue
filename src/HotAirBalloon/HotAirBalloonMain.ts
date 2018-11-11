@@ -38,6 +38,7 @@ class HotAirBalloonMain extends ui.HotAirBalloonUI {
 
     //初始化
     public init(){
+        console.log(HotAirBalloon.gameConfig);
         this.bg.skin = "HotAirBalloon/"+HotAirBalloon.gameConfig.bg;
 
         // 用来计算随机偏移量
@@ -70,7 +71,12 @@ class HotAirBalloonMain extends ui.HotAirBalloonUI {
 
     public playSound(){
         let wordindex = this.soundArr[this.soundContext] - 1;
-        this.wordContext = HotAirBalloon.gameConfig.options[wordindex];
+        let optionContext = HotAirBalloon.gameConfig.options[wordindex];
+        if(HotAirBalloon.gameConfig.optionType === "word"){
+            this.wordContext = optionContext;
+        }else{
+            this.wordContext = optionContext.split('.')[0];
+        }
         console.log(this.wordContext);
         Laya.SoundManager.playSound("res/audio/HotAirBalloon/"+this.wordContext+".mp3", 1);
         // this.soundContext++;

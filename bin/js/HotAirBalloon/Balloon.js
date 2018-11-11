@@ -21,12 +21,17 @@ var Balloon = /** @class */ (function (_super) {
             // let ranArr = HotAirBalloon.hotAirBalloonMain.getRandomArr(9);
             _this.textBg.skin = "HotAirBalloon/" + num + ".png";
             _this.text.text = name;
+            _this.text.visible = true;
+            _this.textBg.visible = true;
+            _this.name = name;
         }
         else {
             _this.text.visible = false;
             _this.textBg.visible = false;
+            _this.pic.visible = true;
+            _this.pic.skin = "HotAirBalloon/" + name;
+            _this.name = name.split('.')[0];
         }
-        _this.name = name;
         _this.on(Laya.Event.CLICK, _this, _this.click);
         return _this;
     }

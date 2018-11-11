@@ -40,11 +40,14 @@ var HotAirBalloonMain = /** @class */ (function (_super) {
     HotAirBalloonMain.prototype.gameover = function () {
         this.replayAble.visible = true;
         this.wordContext = "";
+        this.playing.visible = true;
+        this.play.visible = false;
     };
     //初始化
     HotAirBalloonMain.prototype.init = function () {
-        console.log(HotAirBalloon.gameConfig);
         this.bg.skin = "HotAirBalloon/" + HotAirBalloon.gameConfig.bg;
+        this.playing.visible = false;
+        this.play.visible = true;
         // 用来计算随机偏移量
         var perx = this.maxX / 20;
         var pery = this.maxX / 10;
@@ -80,6 +83,12 @@ var HotAirBalloonMain = /** @class */ (function (_super) {
         }
         console.log(this.wordContext);
         Laya.SoundManager.playSound("res/audio/HotAirBalloon/" + this.wordContext + ".mp3", 1);
+        this.playing.visible = true;
+        this.play.visible = false;
+        Laya.timer.once(1000, this, function () {
+            this.playing.visible = false;
+            this.play.visible = true;
+        });
         // this.soundContext++;
     };
     // 显示提示

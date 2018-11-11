@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":26,
-    "selecteID":7,
+    "selectedBox":1,
+    "selecteID":335,
     "props":{"width":1024,"sceneColor":"#ffffff","height":768},
     "nodeParent":-1,
     "label":"View",
@@ -354,6 +354,19 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":332,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "props":{"y":669,"x":66,"var":"playing","skin":"HotAirBalloon/sound-disabled.png"},
+            "nodeParent":1,
+            "label":"Image(playing)",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":335,
             "child":[
                 ]
         }],

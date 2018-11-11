@@ -34,12 +34,15 @@ class HotAirBalloonMain extends ui.HotAirBalloonUI {
     public gameover(){
         this.replayAble.visible = true;
         this.wordContext = "";
+        this.playing.visible = true ;
+        this.play.visible = false;
     }
 
     //初始化
     public init(){
-        console.log(HotAirBalloon.gameConfig);
         this.bg.skin = "HotAirBalloon/"+HotAirBalloon.gameConfig.bg;
+        this.playing.visible = false;
+        this.play.visible = true;
 
         // 用来计算随机偏移量
         let perx = this.maxX/20;
@@ -79,6 +82,12 @@ class HotAirBalloonMain extends ui.HotAirBalloonUI {
         }
         console.log(this.wordContext);
         Laya.SoundManager.playSound("res/audio/HotAirBalloon/"+this.wordContext+".mp3", 1);
+        this.playing.visible = true ;
+        this.play.visible = false;
+        Laya.timer.once(1000, this,function(){
+            this.playing.visible = false ;
+            this.play.visible = true;
+        });
         // this.soundContext++;
     }
 

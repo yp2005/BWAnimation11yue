@@ -18,7 +18,7 @@ var HotAirBalloonMain = /** @class */ (function (_super) {
     function HotAirBalloonMain() {
         var _this = _super.call(this) || this;
         _this.maxX = 1000; //
-        _this.maxY = 570; //
+        _this.maxY = 478; //
         _this.soundContext = 0; //
         _this.wordContext = ""; //
         _this.configView = new HABConfigView(_this.configBox);
@@ -64,7 +64,7 @@ var HotAirBalloonMain = /** @class */ (function (_super) {
             // y的值就是除5的商（总是0或者1），乘以总高的2分一；
             var y = Math.floor((posRan[i] - 1) / 5) * this.maxY / 2;
             x = x + Math.random() * perx;
-            y = y + Math.random() * pery;
+            // y = y+Math.random()*pery;
             item.setPos(x, y);
             this.mainpanel.addChild(item);
         }

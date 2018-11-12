@@ -16,6 +16,7 @@ var Balloon = /** @class */ (function (_super) {
         if (name === void 0) { name = ""; }
         if (num === void 0) { num = 1; }
         var _this = _super.call(this) || this;
+        _this.isLeaving = false;
         if (type === "word") {
             _this.pic.visible = false;
             // let ranArr = HotAirBalloon.hotAirBalloonMain.getRandomArr(9);
@@ -38,11 +39,15 @@ var Balloon = /** @class */ (function (_super) {
     // 被点击
     Balloon.prototype.click = function () {
         console.log(HotAirBalloon.hotAirBalloonMain.wordContext + "---" + this.name);
+        if (this.isLeaving) {
+            return;
+        }
         if (HotAirBalloon.hotAirBalloonMain.wordContext === this.name) {
             Laya.SoundManager.playSound("res/audio/HotAirBalloon/" + this.name + ".mp3", 1);
             // Laya.Tween.to(this, {x: -300}, 5000);
             this.removeBalloon();
             HotAirBalloon.hotAirBalloonMain.soundContext++;
+            HotAirBalloon.hotAirBalloonMain.wordContext = "";
             if (HotAirBalloon.hotAirBalloonMain.soundContext === HotAirBalloon.gameConfig.options.length) {
                 console.log("well done");
                 HotAirBalloon.hotAirBalloonMain.gameover();
@@ -53,11 +58,17 @@ var Balloon = /** @class */ (function (_super) {
         }
     };
     Balloon.prototype.removeBalloon = function () {
-        var _x = -300;
-        if (this.x > 450) {
-            _x = 1100;
+        if (this.y < 50) {
+            Laya.Tween.to(this, { y: -500 }, 5000);
         }
-        Laya.Tween.to(this, { x: _x }, 5000);
+        else {
+            var _x = -300;
+            if (this.x > 450) {
+                _x = 1100;
+            }
+            Laya.Tween.to(this, { x: _x }, 5000);
+        }
+        this.isLeaving = true;
     };
     Balloon.prototype.setPos = function (x, y) {
         this.pos(x, y);
@@ -68,14 +79,18 @@ var Balloon = /** @class */ (function (_super) {
     };
     // 飘动
     Balloon.prototype.shake1 = function () {
+        if (this.isLeaving)
+            return;
         Laya.Tween.to(this, { y: this.initY - 10 }, Math.random() * 2000 + 1000, null, Laya.Handler.create(this, this.shake2));
     };
     Balloon.prototype.shake2 = function () {
+        if (this.isLeaving)
+            return;
         Laya.Tween.to(this, { y: this.initY }, Math.random() * 2000 + 1000, null, Laya.Handler.create(this, this.shake1));
     };
     // 图片晃动
     Balloon.prototype.shake = function () {
-        Laya.SoundManager.playSound("res/audio/ferris-wheel-wrong.mp3", 1);
+        Laya.SoundManager.playSound("res/audio/HotAirBalloon/hab-wrong.mp3", 1);
         var _x = this.x;
         Laya.Tween.to(this, { x: _x - 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {
             Laya.Tween.to(this, { x: _x + 15 }, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function () {

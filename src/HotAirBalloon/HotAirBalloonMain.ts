@@ -5,7 +5,7 @@ import Sprite = Laya.Sprite;
 class HotAirBalloonMain extends ui.HotAirBalloonUI {
     private configView: HABConfigView; // 配置页
     public maxX: number = 1000; //
-    public maxY: number = 570; //
+    public maxY: number = 478; //
     private soundArr: Array<any>; //
     public soundContext: number = 0; //
     public wordContext: string = ""; //
@@ -61,7 +61,7 @@ class HotAirBalloonMain extends ui.HotAirBalloonUI {
             // y的值就是除5的商（总是0或者1），乘以总高的2分一；
             let y = Math.floor((posRan[i]-1)/5) * this.maxY/2;
             x = x+Math.random()*perx;
-            y = y+Math.random()*pery;
+            // y = y+Math.random()*pery;
 
             item.setPos(x,y);
             this.mainpanel.addChild(item);

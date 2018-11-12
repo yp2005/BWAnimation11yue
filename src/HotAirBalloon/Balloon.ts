@@ -3,6 +3,7 @@ class Balloon extends ui.BalloonUI {
     public name:string; //
     public initX:number; //原来的x轴坐标
     public initY:number; //原来的y轴坐标
+    private isLeaving:boolean = false;
 
     constructor(type:string = "word",name:string = "",num:number = 1) {
         super(); 
@@ -28,11 +29,15 @@ class Balloon extends ui.BalloonUI {
     // 被点击
     public click(){
         console.log(HotAirBalloon.hotAirBalloonMain.wordContext+"---"+this.name);
+        if(this.isLeaving){
+            return;
+        }
         if(HotAirBalloon.hotAirBalloonMain.wordContext === this.name){
             Laya.SoundManager.playSound("res/audio/HotAirBalloon/"+this.name+".mp3", 1);
             // Laya.Tween.to(this, {x: -300}, 5000);
             this.removeBalloon();
             HotAirBalloon.hotAirBalloonMain.soundContext++;
+            HotAirBalloon.hotAirBalloonMain.wordContext = "";
             if(HotAirBalloon.hotAirBalloonMain.soundContext === HotAirBalloon.gameConfig.options.length){
                 console.log("well done");
                 HotAirBalloon.hotAirBalloonMain.gameover();
@@ -43,11 +48,17 @@ class Balloon extends ui.BalloonUI {
     }
 
     public removeBalloon(){
-        let _x = -300;
-        if(this.x>450){
-            _x = 1100;
+        if(this.y<50){
+            Laya.Tween.to(this, {y: -500}, 5000);
+        }else{
+            let _x = -300;
+            if(this.x>450){
+                _x = 1100;
+            }
+            Laya.Tween.to(this, {x: _x}, 5000);
         }
-        Laya.Tween.to(this, {x: _x}, 5000);
+
+        this.isLeaving = true;
     }
 
     public setPos(x:number,y:number){
@@ -60,16 +71,18 @@ class Balloon extends ui.BalloonUI {
 
     // 飘动
     public shake1() {
+        if(this.isLeaving) return;
         Laya.Tween.to(this, {y: this.initY - 10}, Math.random() * 2000+1000, null, Laya.Handler.create(this, this.shake2));
     }
 
     private shake2() {
+        if(this.isLeaving) return;
         Laya.Tween.to(this, {y: this.initY}, Math.random() * 2000+1000, null, Laya.Handler.create(this, this.shake1));
     }
 
     // 图片晃动
     private shake() {
-        Laya.SoundManager.playSound("res/audio/ferris-wheel-wrong.mp3", 1);
+        Laya.SoundManager.playSound("res/audio/HotAirBalloon/hab-wrong.mp3", 1);
         let _x = this.x;
         Laya.Tween.to(this, {x:_x-15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){
             Laya.Tween.to(this, {x:_x+15}, 50, Laya.Ease.elasticInOut, Laya.Handler.create(this, function(){

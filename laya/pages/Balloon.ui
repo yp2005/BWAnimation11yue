@@ -42,7 +42,7 @@
         {
             "x":15,
             "type":"Text",
-            "props":{"y":54,"x":2,"width":150,"var":"text","valign":"middle","text":"text","height":47,"fontSize":40,"font":"FF","color":"#333333","bold":true,"align":"center"},
+            "props":{"y":43,"x":2,"width":150,"var":"text","valign":"middle","text":"text","height":50,"fontSize":35,"font":"FF","color":"#333333","bold":true,"align":"center"},
             "nodeParent":1,
             "label":"Text(text)",
             "isDirectory":false,

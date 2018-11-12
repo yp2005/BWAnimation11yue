@@ -27,11 +27,10 @@ class FerrisWheelMain extends ui.FerrisWheelUI {
         this.replayAble.visible = false;
         // 选项卡初始化
         this.questions = FerrisWheel.gameConfig.questions;
-        let optionType: string = FerrisWheel.gameConfig.optionType;
         let options: string[] = FerrisWheel.gameConfig.options; 
         this.initFrame(options.length); // 初始化摩天轮架子
         for(let i: number = 0; i < options.length; i++) {
-            let card = new Card(optionType, options[i], i + 1);
+            let card = new Card(options[i], i + 1);
             this.fwframe.addChild(card);
             let pole: Laya.Image = this.fwframe.getChildByName("pole" + (i+ 1)) as Laya.Image;
             card.pivotX = 69;
@@ -180,7 +179,6 @@ class FerrisWheelMain extends ui.FerrisWheelUI {
 
         // 初始化选项卡
         let options: string[] = new Array<string>(); 
-        let optionType: string = FerrisWheel.gameConfig.optionType;
         this.initFrame(FerrisWheel.gameConfig.options.length);
         let indexes: number[] = new Array<number>();
         for(let i = 0; i < FerrisWheel.gameConfig.options.length; i++) {
@@ -193,7 +191,7 @@ class FerrisWheelMain extends ui.FerrisWheelUI {
             options.push(FerrisWheel.gameConfig.options[index]);
         }
         for(let i: number = 0; i < options.length; i++) {
-            let card = new Card(optionType, options[i], i + 1);
+            let card = new Card(options[i], i + 1);
             this.fwframe.addChild(card);
             let pole: Laya.Image = this.fwframe.getChildByName("pole" + (i+ 1)) as Laya.Image;
             card.pivotX = 69;

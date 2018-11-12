@@ -3,11 +3,11 @@ class Card extends ui.CardUI {
     private type: string; // 选项卡类型 word、picture
     private content: string; // 单词或者图片名
     private initX: number; // 选项卡初始X值
-    constructor(type: string, content: string, number: number) {
+    constructor(content: string, number: number) {
         super();
-        this.type = type;
         this.content = content;
-        if(type == "word") { // 单词
+        if(content.toLowerCase().indexOf(".png") == -1 && content.toLowerCase().indexOf(".jpg") == -1
+            && content.toLowerCase().indexOf(".jpeg") == -1 && content.toLowerCase().indexOf(".gif") == -1) { // 单词
             this.card.visible = true;
             this.text.visible = true;
             this.cardPic.visible = false;

@@ -18,11 +18,10 @@ class FerrisWheel {
                     question: "Sky is beautiful，\nit's color is ____.",
                     answer: ["blue"]
                 }, {
-                    question: "Autumn is coming，\nleaf get ____.",
-                    answer: ["yellow"]
+                    question: "I do not like riding，\nit is ____.",
+                    answer: ["boring.png"]
                 }],
-                optionType: "word", // 选项类型 word 单词，picture 图片
-                options: ["blue", "orange", "green", "yellow"] // 选项
+                options: ["blue", "orange", "green", "yellow", "boring.png"] // 选项
             };
         }
         FerrisWheel.gameConfig = config;

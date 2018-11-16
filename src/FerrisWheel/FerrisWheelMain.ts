@@ -44,16 +44,33 @@ class FerrisWheelMain extends ui.FerrisWheelUI {
             this.question.visible = true;
             this.question.fontSize = FerrisWheel.gameConfig.questionFontSize;
             this.question.text = this.questions[0].question;
+            this.question.height = this.question.text.split("\n").length * (this.question.fontSize + 5) + 5;
+            this.question.y = 25 + (150 - this.question.height) / 2;
         }
         else {
             this.question.visible = false;
             this.questionPic = new Laya.Image();
             this.questionPic.skin = "FerrisWheel/question-pic/" + this.questions[0].question;
             this.brand.addChild(this.questionPic);
-            this.questionPic.centerX = 0;
-            this.questionPic.centerY = 0;
+            this.questionPic.x = 25;
+            this.questionPic.y = 25 + (150 - this.questionPic.height) / 2;
         }
-        this.nextAble.visible = false; 
+        this.next.on(Laya.Event.MOUSE_UP, this, function() {
+            Laya.timer.once(100, this, function() {
+                if(this.curQuestionIndex + 1 < this.questions.length) {
+                    this.nextAble.visible = true;
+                }
+                
+            });
+        });
+        if(this.curQuestionIndex + 1 < this.questions.length) { // 问题没答完，下一个问题按钮亮起
+            this.nextAble.visible = true;
+            this.next.on(Laya.Event.MOUSE_DOWN, this, this.nextQuestion);
+        }
+        else { // 全部问题完成，replay按钮亮起
+            this.replayAble.visible = true;
+            this.replay.on(Laya.Event.CLICK, this, this.restart);
+        }  
     }
 
     // 初始化摩天轮架子
@@ -98,17 +115,33 @@ class FerrisWheelMain extends ui.FerrisWheelUI {
     // 进入下一个问题
     private nextQuestion() {
         this.nextAble.visible = false;
+        this.next.off(Laya.Event.MOUSE_DOWN, this, this.nextQuestion);
         this.curQuestionIndex++;
         if(FerrisWheel.gameConfig.questionType == "text") {
             this.question.text = this.questions[this.curQuestionIndex].question;
+            this.question.height = this.question.text.split("\n").length * (this.question.fontSize + 5) + 5;
+            this.question.y = 25 + (150 - this.question.height) / 2;
         }
         else {
+            this.brand.removeChild(this.questionPic);
+            this.questionPic.destroy();
+            this.questionPic = null;
+            this.questionPic = new Laya.Image();
             this.questionPic.skin = "FerrisWheel/question-pic/" + this.questions[this.curQuestionIndex].question;
+            this.brand.addChild(this.questionPic);
+            this.questionPic.x = 25;
+            this.questionPic.y = 25 + (150 - this.questionPic.height) / 2;
         }
-        this.next.off(Laya.Event.CLICK, this, this.nextQuestion);
         this.turnPause = false;
         this.answeredNumber = 0;
         this.resetCard();
+        if(this.curQuestionIndex + 1 >= this.questions.length) { // 问题答完, replay按钮两期
+            this.replayAble.visible = true;
+            this.replay.on(Laya.Event.CLICK, this, this.restart);
+        }
+        else {
+            this.next.on(Laya.Event.MOUSE_DOWN, this, this.nextQuestion);
+        }
     }
 
     // 选项卡恢复原大小
@@ -124,14 +157,6 @@ class FerrisWheelMain extends ui.FerrisWheelUI {
         Laya.SoundManager.playSound("res/audio/ferris-wheel-right.mp3", 1);
         // 摩天轮暂停转动
         this.turnPause = true;
-        if(this.curQuestionIndex + 1 < this.questions.length) { // 问题没答完，下一个问题按钮亮起
-            this.next.on(Laya.Event.CLICK, this, this.nextQuestion);
-            this.nextAble.visible = true;
-        }
-        else { // 全部问题完成，replay按钮亮起
-            this.replayAble.visible = true;
-            this.replay.on(Laya.Event.CLICK, this, this.restart);
-        }  
     }
 
      // 显示提示
@@ -220,16 +245,17 @@ class FerrisWheelMain extends ui.FerrisWheelUI {
             this.question.visible = true;
             this.question.fontSize = FerrisWheel.gameConfig.questionFontSize;
             this.question.text = this.questions[0].question;
+            this.question.height = this.question.text.split("\n").length * (this.question.fontSize + 5) + 5;
+            this.question.y = 25 + (150 - this.question.height) / 2;
         }
         else {
             this.question.visible = false;
             this.questionPic = new Laya.Image();
             this.questionPic.skin = "FerrisWheel/question-pic/" + this.questions[0].question;
             this.brand.addChild(this.questionPic);
-            this.questionPic.centerX = 0;
-            this.questionPic.centerY = 0;
+            this.questionPic.x = 25;
+            this.questionPic.y = 25 + (150 - this.questionPic.height) / 2;
         }
-        this.nextAble.visible = false;  
 
         // 其他参数设置
         this.curQuestionIndex = 0;
@@ -237,6 +263,16 @@ class FerrisWheelMain extends ui.FerrisWheelUI {
         this.turnPause = false;
         this.replayAble.visible = false;
         this.replay.off(Laya.Event.CLICK, this, this.restart);
+        if(this.curQuestionIndex + 1 < this.questions.length) { // 问题没答完，下一个问题按钮亮起
+            this.nextAble.visible = true;
+            this.next.on(Laya.Event.MOUSE_DOWN, this, this.nextQuestion);
+        }
+        else { // 全部问题完成，replay按钮亮起
+            this.nextAble.visible = false;
+            this.next.off(Laya.Event.MOUSE_DOWN, this, this.nextQuestion);
+            this.replayAble.visible = true;
+            this.replay.on(Laya.Event.CLICK, this, this.restart);
+        } 
     }
 
     // 摩天轮转动

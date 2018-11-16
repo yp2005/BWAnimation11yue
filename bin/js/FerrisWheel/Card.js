@@ -11,11 +11,11 @@ var __extends = (this && this.__extends) || (function () {
 // 选项卡
 var Card = /** @class */ (function (_super) {
     __extends(Card, _super);
-    function Card(type, content, number) {
+    function Card(content, number) {
         var _this = _super.call(this) || this;
-        _this.type = type;
         _this.content = content;
-        if (type == "word") {
+        if (content.toLowerCase().indexOf(".png") == -1 && content.toLowerCase().indexOf(".jpg") == -1
+            && content.toLowerCase().indexOf(".jpeg") == -1 && content.toLowerCase().indexOf(".gif") == -1) {
             _this.card.visible = true;
             _this.text.visible = true;
             _this.cardPic.visible = false;

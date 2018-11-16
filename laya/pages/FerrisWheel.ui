@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":35,
-    "selecteID":39,
+    "selectedBox":26,
+    "selecteID":17,
     "props":{"width":1024,"sceneColor":"#ffffff","height":768},
     "nodeParent":-1,
     "label":"View",
@@ -165,13 +165,14 @@
             "props":{"y":119,"x":575,"width":985,"var":"configBox","pivotY":100,"pivotX":554,"height":498},
             "nodeParent":1,
             "label":"Box(configBox)",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":26,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":9,"x":463,"width":522,"skin":"common/configBG.png","sizeGrid":"20,10,20,10","height":449,"alpha":1},
                     "nodeParent":26,
@@ -186,6 +187,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Button",
                     "props":{"y":364,"x":645,"width":86,"skin":"template/ButtonTab/btn_LargeTabButton_Middle.png","name":"submitBtn","labelSize":20,"labelColors":"#007AFF,#007AFF,#FFFFFF","label":"提交","height":32},
                     "nodeParent":26,
@@ -198,6 +200,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "props":{"y":7,"x":947,"width":40,"text":"+","rotation":45,"pivotY":-1,"pivotX":-10,"name":"closeBtn","height":40,"fontSize":40,"color":"#5d5454","bold":false,"align":"center"},
                     "nodeParent":26,
@@ -210,6 +213,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "props":{"y":306,"x":634,"width":303,"text":"示例：\bblue,green,red,yellow,boring.png","height":17,"fontSize":17,"font":"FF","color":"#666666"},
                     "nodeParent":26,
@@ -222,6 +226,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":127,"x":516,"text":"问题字号：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":26,
@@ -234,6 +239,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":115,"x":623,"width":315,"skin":"template/Text/TextBox.png","height":39},
                     "nodeParent":26,
@@ -246,6 +252,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"TextInput",
                     "props":{"y":120,"x":638,"width":286,"text":"30","name":"questionFontSize","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
                     "nodeParent":26,
@@ -258,6 +265,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":182,"x":556,"text":"问题：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":26,
@@ -270,6 +278,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":169,"x":624,"width":315,"skin":"template/Text/TextBox.png","height":39},
                     "nodeParent":26,
@@ -282,6 +291,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"TextInput",
                     "props":{"y":174,"x":639,"width":286,"name":"questions","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
                     "nodeParent":26,
@@ -294,6 +304,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":276,"x":557,"text":"选项：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":26,
@@ -306,6 +317,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":264,"x":625,"width":315,"skin":"template/Text/TextBox.png","height":39},
                     "nodeParent":26,
@@ -318,6 +330,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"TextInput",
                     "props":{"y":269,"x":640,"width":286,"name":"options","height":31,"fontSize":16,"font":"FF","color":"#3b3232"},
                     "nodeParent":26,
@@ -330,8 +343,9 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "props":{"y":214,"x":634,"wordWrap":true,"width":289,"text":"示例：I'm <br>____.==yupeng,zhian@@I'm a ____.==boy,girl","height":38,"fontSize":17,"font":"FF","color":"#666666"},
+                    "props":{"y":214,"x":634,"wordWrap":true,"width":289,"text":"示例：I'm <br>____.==ZhangSan,LiSi@@I'm a ____.==boy,girl","height":38,"fontSize":17,"font":"FF","color":"#666666"},
                     "nodeParent":26,
                     "label":"Text",
                     "isDirectory":false,
@@ -342,6 +356,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":73,"x":511,"text":"问题类型 ：","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":26,
@@ -354,6 +369,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":73,"x":669,"text":"文字","name":"textRadio","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":26,
@@ -366,6 +382,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Label",
                     "props":{"y":72,"x":773,"text":"图片","name":"picRadio","fontSize":20,"font":"FF","color":"#2a2121"},
                     "nodeParent":26,
@@ -378,6 +395,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":69,"x":645,"width":20,"skin":"common/img_radio_checked.png","name":"textRadioImg","height":20},
                     "nodeParent":26,
@@ -390,6 +408,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "props":{"y":69,"x":748,"width":20,"skin":"common/img_radio_notCheck.png","name":"picRadioImg","height":20},
                     "nodeParent":26,

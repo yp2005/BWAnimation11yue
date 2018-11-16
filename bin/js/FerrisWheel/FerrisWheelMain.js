@@ -35,11 +35,10 @@ var FerrisWheelMain = /** @class */ (function (_super) {
         this.replayAble.visible = false;
         // 选项卡初始化
         this.questions = FerrisWheel.gameConfig.questions;
-        var optionType = FerrisWheel.gameConfig.optionType;
         var options = FerrisWheel.gameConfig.options;
         this.initFrame(options.length); // 初始化摩天轮架子
         for (var i = 0; i < options.length; i++) {
-            var card = new Card(optionType, options[i], i + 1);
+            var card = new Card(options[i], i + 1);
             this.fwframe.addChild(card);
             var pole = this.fwframe.getChildByName("pole" + (i + 1));
             card.pivotX = 69;
@@ -178,7 +177,6 @@ var FerrisWheelMain = /** @class */ (function (_super) {
         this.options = new Array();
         // 初始化选项卡
         var options = new Array();
-        var optionType = FerrisWheel.gameConfig.optionType;
         this.initFrame(FerrisWheel.gameConfig.options.length);
         var indexes = new Array();
         for (var i = 0; i < FerrisWheel.gameConfig.options.length; i++) {
@@ -191,7 +189,7 @@ var FerrisWheelMain = /** @class */ (function (_super) {
             options.push(FerrisWheel.gameConfig.options[index]);
         }
         for (var i = 0; i < options.length; i++) {
-            var card = new Card(optionType, options[i], i + 1);
+            var card = new Card(options[i], i + 1);
             this.fwframe.addChild(card);
             var pole = this.fwframe.getChildByName("pole" + (i + 1));
             card.pivotX = 69;

@@ -8,13 +8,9 @@ var FWConfigView = /** @class */ (function () {
         this.questions = configBox.getChildByName("questions");
         this.options = configBox.getChildByName("options");
         this.textRadio = configBox.getChildByName("textRadio");
-        this.wordRadio = configBox.getChildByName("wordRadio");
         this.picRadio = configBox.getChildByName("picRadio");
-        this.picRadio1 = configBox.getChildByName("picRadio1");
         this.textRadioImg = configBox.getChildByName("textRadioImg");
-        this.wordRadioImg = configBox.getChildByName("wordRadioImg");
         this.picRadioImg = configBox.getChildByName("picRadioImg");
-        this.picRadioImg1 = configBox.getChildByName("picRadioImg1");
         this.submitBtn = configBox.getChildByName("submitBtn");
         this.closeBtn = configBox.getChildByName("closeBtn");
         // 添加事件监听
@@ -22,10 +18,6 @@ var FWConfigView = /** @class */ (function () {
         this.textRadioImg.on(Laya.Event.CLICK, this, this.switchText);
         this.picRadio.on(Laya.Event.CLICK, this, this.switchPic);
         this.picRadioImg.on(Laya.Event.CLICK, this, this.switchPic);
-        this.wordRadio.on(Laya.Event.CLICK, this, this.switchWord);
-        this.wordRadioImg.on(Laya.Event.CLICK, this, this.switchWord);
-        this.picRadio1.on(Laya.Event.CLICK, this, this.switchPic1);
-        this.picRadioImg1.on(Laya.Event.CLICK, this, this.switchPic1);
         this.submitBtn.on(Laya.Event.CLICK, this, this.submit);
         this.closeBtn.on(Laya.Event.CLICK, this, this.hide);
     }
@@ -47,23 +39,6 @@ var FWConfigView = /** @class */ (function () {
             this.picRadioImg.skin = "common/img_radio_checked.png";
         }
     };
-    // 选项类型选择单词
-    FWConfigView.prototype.switchWord = function (e) {
-        e.stopPropagation();
-        if (this.optionType == "picture") {
-            this.optionType = "word";
-            this.wordRadioImg.skin = "common/img_radio_checked.png";
-            this.picRadioImg1.skin = "common/img_radio_notCheck.png";
-        }
-    };
-    // 选项类型选择图片
-    FWConfigView.prototype.switchPic1 = function (e) {
-        if (this.optionType == "word") {
-            this.optionType = "picture";
-            this.wordRadioImg.skin = "common/img_radio_notCheck.png";
-            this.picRadioImg1.skin = "common/img_radio_checked.png";
-        }
-    };
     // 初始化
     FWConfigView.prototype.init = function () {
         this.questionType = FerrisWheel.gameConfig.questionType;
@@ -74,15 +49,6 @@ var FWConfigView = /** @class */ (function () {
         else {
             this.picRadioImg.skin = "common/img_radio_checked.png";
             this.textRadioImg.skin = "common/img_radio_notCheck.png";
-        }
-        this.optionType = FerrisWheel.gameConfig.optionType;
-        if (this.optionType == "word") {
-            this.wordRadioImg.skin = "common/img_radio_checked.png";
-            this.picRadioImg1.skin = "common/img_radio_notCheck.png";
-        }
-        else {
-            this.picRadioImg1.skin = "common/img_radio_checked.png";
-            this.wordRadioImg.skin = "common/img_radio_notCheck.png";
         }
         this.questionFontSize.text = FerrisWheel.gameConfig.questionFontSize;
         // 初始化问题内容
@@ -172,7 +138,6 @@ var FWConfigView = /** @class */ (function () {
             questionType: this.questionType,
             questionFontSize: parseInt(this.questionFontSize.text),
             questions: questions,
-            optionType: this.optionType,
             options: options
         };
         FerrisWheel.ferrisWheelMain.showTip("提交成功！");
